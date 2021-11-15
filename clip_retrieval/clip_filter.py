@@ -61,9 +61,8 @@ def clip_filter(query, output_folder, indice_folder, num_results=100, threshold=
 
     for distance, i in zip(D, I):
         path = image_list[i]
-        print(path)
         _, orig_filename = os.path.split(path)
-        distance = "%.2f" % distance
+        distance = "%.3f" % distance
         output_filename = f'{distance}_{orig_filename}'
         if os.path.exists(path):
             shutil.copy(path, f'{output_folder}/{output_filename}')
