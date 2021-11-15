@@ -59,10 +59,13 @@ def clip_filter(query, output_folder, indice_folder, num_results=100, threshold=
 
     print(f"Copying the images in {output_folder}")
 
-    for _, i in zip(D, I):
+    for distance, i in zip(D, I):
         path = image_list[i]
+        orig_filename, _ = os.path.split(path)
+        distance = "%.2f" % distance
+        output_filename = f'{distance}_{orig_filename}'
         if os.path.exists(path):
-            shutil.copy(path, output_folder)
+            shutil.copy(path, f'{output_folder}/{output_filename}')
         if url_list is not None:
             print(url_list[i])
 
