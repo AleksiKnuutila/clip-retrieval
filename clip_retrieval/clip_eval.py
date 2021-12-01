@@ -57,18 +57,11 @@ def clip_filter(query, output_folder, indice_folder, num_results=100, threshold=
     print(f"The minimum distance is {min_D:.2f} and the maximum is {max_D:.2f}")
     print("You may want to use these numbers to increase your --num_results parameter. Or use the --threshold parameter.")
 
-    print(f"Copying the images in {output_folder}")
-
     for distance, i in zip(D, I):
         path = image_list[i]
         _, orig_filename = os.path.split(path)
-        distance = "%.3f" % distance
-        output_filename = f'{distance}_{orig_filename}'
-        if os.path.exists(path):
-            shutil.copy(path, f'{output_folder}/{output_filename}')
-        if url_list is not None:
-            print(url_list[i])
-
+        distance = "%.4f" % distance
+        print(f'{orig_filename},{distance}')
 
 if __name__ == '__main__':
   fire.Fire(clip_filter)
