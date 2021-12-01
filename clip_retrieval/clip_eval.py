@@ -61,7 +61,7 @@ def clip_eval(query, output_folder, indice_folder, num_results=100, threshold=No
         path = image_list[i]
         _, orig_filename = os.path.split(path)
         distance = "%.4f" % distance
-        print(f'{orig_filename},{query},{distance}')
+        print(f'{orig_filename},{text_input},{distance}')
 
 if __name__ == '__main__':
   fire.Fire(clip_eval)
