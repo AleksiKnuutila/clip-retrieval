@@ -64,4 +64,4 @@ def clip_eval(query, output_folder, indice_folder, num_results=100, threshold=No
         print(f'{orig_filename},{distance}')
 
 if __name__ == '__main__':
-  fire.Fire(clip_filter)
+  fire.Fire(clip_eval)
