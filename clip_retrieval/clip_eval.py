@@ -9,7 +9,7 @@ from pathlib import Path
 import pandas as pd
 
 
-def clip_filter(query, output_folder, indice_folder, num_results=100, threshold=None):
+def clip_eval(query, output_folder, indice_folder, num_results=100, threshold=None):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model, _ = clip.load("ViT-B/32", device=device, jit=False)
 
